@@ -78,8 +78,8 @@ class GamePad:
     changed = False
 
     # ready analog joysticks
-    x = translate(self.jx_adc.read_analog(), 4095, 0, 100, -100)
-    y = translate(self.jy_adc.read_analog(), 4095, 0, 100, -100)
+    x = translate(self.jx_adc.read_analog(), 3600, 150, 100, -100)
+    y = translate(self.jy_adc.read_analog(), 3600, 150, 100, -100)
     j_distance = int(math.sqrt(x*x + y*y)) # joystick drag distance (robot speed)
 
     angle = int((math.atan2(y, x) - math.atan2(0, 100))  * 180 / math.pi)
@@ -117,8 +117,8 @@ class GamePad:
                 ble.send(cmd)
 
   def read_joystick(self):
-    x = translate(self.jx_adc.read_analog(), 4095, 0, 100, -100)
-    y = translate(self.jy_adc.read_analog(), 4095, 0, 100, -100)
+    x = translate(self.jx_adc.read_analog(), 3600, 150, 100, -100)
+    y = translate(self.jy_adc.read_analog(), 3600, 150, 100, -100)
     j_distance = int(math.sqrt(x*x + y*y)) # joystick drag distance (robot speed)
 
     angle = int((math.atan2(y, x) - math.atan2(0, 100))  * 180 / math.pi)
@@ -136,11 +136,11 @@ class GamePad:
 
   def read_buttons(self):
     # button status order: Joystick - C (down) - D (right) - E (up) - F (left)
-    return (self.btn_joystick.read_digital(),
-      self.btn_down_c.read_digital(), 
-      self.btn_right_d.read_digital(), 
-      self.btn_up_e.read_digital(), 
-      self.btn_left_f.read_digital(),
+    return (1-self.btn_joystick.read_digital(),
+      1-self.btn_down_c.read_digital(), 
+      1-self.btn_right_d.read_digital(), 
+      1-self.btn_up_e.read_digital(), 
+      1-self.btn_left_f.read_digital(),
       )
 
 gamepad = GamePad()
