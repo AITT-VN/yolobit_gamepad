@@ -1,0 +1,16 @@
+{
+    "name": "GamePad",
+    "description": "Khối lệnh mở rộng cho tay cầm điều khiển GamePad",
+    "libs": [
+        "gamepad.py"
+    ],
+    "blocks": [
+        "definition.js"
+    ],
+    "toolbox": "toolbox.xml",
+    "languages": {
+        "en": "languages/en.js",
+        "vi": "languages/vi.js"
+    },
+    "poster": "poster.png"
+}
