@@ -12,7 +12,7 @@ class GamePad:
   def __init__(self):
 
     # Joystick
-    self.jx_adc = pin2
+    self.jx_adc = pin0
     self.jy_adc = pin1
     
 
@@ -20,7 +20,7 @@ class GamePad:
     self.last_speed = 0
 
     # Buttons
-    self.btn_joystick = pin0
+    self.btn_joystick = pin2
     self.btn_left_f = pin16
     self.btn_right_d = pin14
     self.btn_up_e = pin15

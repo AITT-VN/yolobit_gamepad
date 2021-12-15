@@ -1,6 +1,5 @@
 <xml xmlns="https://developers.google.com/blockly/xml" id="toolbox" style="display: none">
   <category id="gamepad" name="GAMEPAD" colour="#1b80c4" icon="gamepad">
-      <block type="gamepad_read_drive" />
       <block type="gamepad_read_joystick" />
       <block type="gamepad_read_buttons" />
   </category>
