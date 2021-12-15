@@ -117,8 +117,20 @@ class GamePad:
                 ble.send(cmd)
 
   def read_joystick(self):
-    x = round(translate(self.jx_adc.read_analog(), 3600, 150, 100, -100))
-    y = round(translate(self.jy_adc.read_analog(), 3600, 150, 100, -100))
+    x_adc = self.jx_adc.read_analog()
+    if x_adc > 3450:
+      x_adc = 3450
+    y_adc = self.jy_adc.read_analog()
+    if y_adc > 3450:
+      y_adc = 3450
+    
+    x = round(translate(x_adc, 3450, 0, 100, -100))
+    if x>-5 and x<5:
+      x = 0
+    y = round(translate(y_adc, 3450, 0, 100, -100))
+    if y>-5 and y<5:
+      y = 0
+    
     j_distance = int(math.sqrt(x*x + y*y)) # joystick drag distance (robot speed)
 
     angle = int((math.atan2(y, x) - math.atan2(0, 100))  * 180 / math.pi)
