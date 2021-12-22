@@ -231,5 +231,5 @@ Blockly.Python['gamepad_direction'] = function(block) {
   var dir = block.getFieldValue("dir");
   Blockly.Python.definitions_['import_gamepad'] = 'from gamepad import *';
   var code = 'gamepad.check_dir(' + dir + ')';
-  return [code, Blockly.Python.ORDER_MEMBER];
+  return [code, Blockly.Python.ORDER_NONE];
 };
