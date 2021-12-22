@@ -135,6 +135,7 @@ Blockly.Blocks["gamepad_direction"] = {
   init: function () {
     this.jsonInit({
       type: 'gamepad_direction',
+      tooltip: "Kiểm tra các hướng của joystick trên GamePad",
       colour: "#1b80c4",
       message0: "joystick ở hướng %1",
       args0: [
@@ -217,11 +218,13 @@ Blockly.Blocks["gamepad_direction"] = {
           ],
         }
       ],
-      output: "Number",
-      tooltip: "abc",
+      output: "null",
       helpUrl: ""
     });
   },
+  getDeveloperVars: function() {
+    return ['gamepad'];
+  }
 };
 
 Blockly.Python['gamepad_direction'] = function(block) {
