@@ -218,7 +218,7 @@ Blockly.Blocks["gamepad_direction"] = {
           ],
         }
       ],
-      output: "null",
+      output: null,
       helpUrl: ""
     });
   },
@@ -233,3 +233,4 @@ Blockly.Python['gamepad_direction'] = function(block) {
   var code = 'gamepad.check_dir(' + dir + ')';
   return [code, Blockly.Python.ORDER_NONE];
 };
+
