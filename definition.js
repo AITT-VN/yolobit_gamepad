@@ -130,3 +130,103 @@ Blockly.Python["gamepad_read_buttons"] = function (block) {
   var code = 'gamepad.read_buttons()[' + input + ']';
   return [code, Blockly.Python.ORDER_NONE];
 };
+
+Blockly.Blocks["gamepad_direction"] = {
+  init: function () {
+    this.jsonInit({
+      type: 'gamepad_direction',
+      colour: "#1b80c4",
+      message0: "joystick ở hướng %1",
+      args0: [
+        {
+          type: "field_dropdown",
+          name: "dir",
+          options: [
+            [
+              {
+                "src": "https://ohstem-public.s3.ap-southeast-1.amazonaws.com/extensions/AITT-VN/yolobit_gamepad/images/arrow-right.svg",
+                "width": 15,
+                "height": 15,
+                "alt": "phải"
+              },
+              "1"
+            ],
+            [
+              {
+                "src": "https://ohstem-public.s3.ap-southeast-1.amazonaws.com/extensions/AITT-VN/yolobit_gamepad/images/arrow-up-right.svg",
+                "width": 15,
+                "height": 15,
+                "alt": "lên phải"
+              },
+              "2"
+            ],
+            [
+              {
+                "src": "https://ohstem-public.s3.ap-southeast-1.amazonaws.com/extensions/AITT-VN/yolobit_gamepad/images/arrow-up.svg",
+                "width": 15,
+                "height": 15,
+                "alt": "lên"
+              },
+              "3"
+            ],
+            [
+              {
+                "src": "https://ohstem-public.s3.ap-southeast-1.amazonaws.com/extensions/AITT-VN/yolobit_gamepad/images/arrow-up-left.svg",
+                "width": 15,
+                "height": 15,
+                "alt": "lên trái"
+              },
+              "4"
+            ],
+            [
+              {
+                "src": "https://ohstem-public.s3.ap-southeast-1.amazonaws.com/extensions/AITT-VN/yolobit_gamepad/images/arrow-left.svg",
+                "width": 15,
+                "height": 15,
+                "alt": "trái"
+              },
+              "5"
+            ],
+            [
+              {
+                "src": "https://ohstem-public.s3.ap-southeast-1.amazonaws.com/extensions/AITT-VN/yolobit_gamepad/images/arrow-down-left.svg",
+                "width": 15,
+                "height": 15,
+                "alt": "xuống trái"
+              },
+              "6"
+            ],
+            [
+              {
+                "src": "https://ohstem-public.s3.ap-southeast-1.amazonaws.com/extensions/AITT-VN/yolobit_gamepad/images/arrow-down.svg",
+                "width": 15,
+                "height": 15,
+                "alt": "xuống"
+              },
+              "7"
+            ],
+            [
+              {
+                "src": "https://ohstem-public.s3.ap-southeast-1.amazonaws.com/extensions/AITT-VN/yolobit_gamepad/images/arrow-down-right.svg",
+                "width": 15,
+                "height": 15,
+                "alt": "xuống phải"
+              },
+              "8"
+            ],
+          ],
+        }
+      ],
+      output: "Number",
+      tooltip: "abc",
+      helpUrl: ""
+    });
+  },
+};
+
+Blockly.Python['gamepad_direction'] = function(block) {
+  var dir = block.getFieldValue("dir");
+  Blockly.Python.definitions_['import_gamepad'] = 'from gamepad import *';
+  var code = 'gamepad.check_dir(' + dir + ')';
+  return [code, Blockly.Python.ORDER_MEMBER];
+};

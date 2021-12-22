@@ -139,6 +139,7 @@ class GamePad:
 
     if j_distance < 15:
         j_distance = 0
+        angle = -1
     elif j_distance > 100:
         j_distance = 100
 
@@ -157,5 +158,43 @@ class GamePad:
       1-self.btn_up_e.read_digital(), 
       1-self.btn_left_f.read_digital(),
       )
+
+  def check_dir(self, direction=-1):
+    angle = gamepad.read_joystick()[2]
+
+    # calculate direction based on angle
+
+    #         90(3)
+
+    #   135(4) |  45(2)
+
+    # 180(5)---+----Angle=0(dir=1)
+
+    #   225(6) |  315(8)
+
+    #         270(7)
+
+    dir = 0
+    if 0 <= angle < 22.5 or angle >= 337.5:
+      dir = 1
+    elif 22.5 <= angle < 67.5:
+      dir = 2
+    elif 67.5 <= angle < 112.5:
+      dir = 3
+    elif 112.5 <= angle < 157.5:
+      dir = 4
+    elif 157.5 <= angle < 202.5:
+      dir = 5
+    elif 202.5<= angle < 247.5:
+      dir = 6
+    elif 247.5 <= angle < 292.5:
+      dir = 7
+    elif 292.5 <= angle < 337.5:
+      dir = 8
+      
+    if dir == direction:
+      return True
+    else:
+      return False
 
 gamepad = GamePad()
