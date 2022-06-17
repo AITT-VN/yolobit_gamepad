@@ -137,7 +137,7 @@ class GamePad:
     if angle < 0: 
       angle += 360
 
-    if j_distance < 15:
+    if j_distance < 25:
         j_distance = 0
         angle = -1
     elif j_distance > 100:

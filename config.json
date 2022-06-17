@@ -2,7 +2,7 @@
     "name": "GamePad",
     "description": "Khối lệnh mở rộng cho tay cầm điều khiển GamePad",
     "libs": [
-        "gamepad.py"
+        "gamepad.py", "main.py"
     ],
     "blocks": [
         "definition.js"
