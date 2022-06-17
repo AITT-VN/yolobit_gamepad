@@ -30,28 +30,28 @@ while True:
     time.sleep_ms(200)
   if gamepad.check_dir(1):
     say('R')
-    ble.send_value('R', ((gamepad.read_joystick()[3]) / 2))
+    ble.send_value('R', (gamepad.read_joystick()[3]))
   elif gamepad.check_dir(2):
     say('FR')
-    ble.send_value('FR', ((gamepad.read_joystick()[3]) / 2))
+    ble.send_value('FR', (gamepad.read_joystick()[3]))
   elif gamepad.check_dir(3):
     say('F')
     ble.send_value('F', (gamepad.read_joystick()[3]))
   elif gamepad.check_dir(4):
     say('FL')
-    ble.send_value('FL', ((gamepad.read_joystick()[3]) / 2))
+    ble.send_value('FL', (gamepad.read_joystick()[3]))
   elif gamepad.check_dir(5):
     say('L')
-    ble.send_value('L', ((gamepad.read_joystick()[3]) / 2))
+    ble.send_value('L', (gamepad.read_joystick()[3]))
   elif gamepad.check_dir(6):
     say('BL')
-    ble.send_value('BL', ((gamepad.read_joystick()[3]) / 2))
+    ble.send_value('BL', (gamepad.read_joystick()[3]))
   elif gamepad.check_dir(7):
     say('B')
     ble.send_value('B', (gamepad.read_joystick()[3]))
   elif gamepad.check_dir(8):
     say('BR')
-    ble.send_value('BR', ((gamepad.read_joystick()[3]) / 2))
+    ble.send_value('BR', (gamepad.read_joystick()[3]))
   else:
     ble.send_value('S', 0)
   if gamepad.read_buttons()[1]:
